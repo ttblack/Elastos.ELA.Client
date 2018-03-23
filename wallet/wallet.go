@@ -1,12 +1,12 @@
 package wallet
 
 import (
-	"fmt"
-	"math"
 	"bytes"
 	"errors"
-	"strconv"
+	"fmt"
+	"math"
 	"math/rand"
+	"strconv"
 
 	"github.com/elastos/Elastos.ELA.Client/log"
 
@@ -313,7 +313,9 @@ func (wallet *WalletImpl) createCrossChainTransaction(fromAddress string, fee *F
 	}
 
 	txn := wallet.newTransaction(account.RedeemScript, txInputs, txOutputs)
-	txn.Attributes = txAttribute
+	for _, att := range txAttribute {
+		txn.Attributes = append(txn.Attributes, att)
+	}
 	return txn, nil
 }
 
