@@ -179,7 +179,7 @@ func signTransaction(name string, password []byte, context *cli.Context, wallet 
 		return err
 	}
 
-	haveSign, needSign, _ = crypto.GetSignStatus(code, param)
+	haveSign, needSign, _ = crypto.GetSignStatus(code, txn.Programs[0].Parameter)
 	fmt.Println("[", haveSign, "/", needSign, "] Transaction successfully signed")
 
 	output(haveSign, needSign, &txn)
