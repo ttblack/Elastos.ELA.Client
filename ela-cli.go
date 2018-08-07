@@ -7,6 +7,7 @@ import (
 	"github.com/elastos/Elastos.ELA.Client/cli/info"
 	"github.com/elastos/Elastos.ELA.Client/cli/wallet"
 	"github.com/elastos/Elastos.ELA.Client/cli/mine"
+	"github.com/elastos/Elastos.ELA.Client/cli/smartcontract"
 	"github.com/elastos/Elastos.ELA.Client/log"
 	cliLog "github.com/elastos/Elastos.ELA.Client/cli/log"
 	"github.com/urfave/cli"
@@ -33,6 +34,7 @@ func main() {
 		*info.NewCommand(),
 		*wallet.NewCommand(),
 		*mine.NewCommand(),
+		*smartcontract.NewCommand(),
 	}
 	sort.Sort(cli.CommandsByName(app.Commands))
 	sort.Sort(cli.FlagsByName(app.Flags))
